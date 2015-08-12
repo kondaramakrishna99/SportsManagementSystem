@@ -1,0 +1,97 @@
+﻿<VSTemplate Version="2.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+	<TemplateData>
+		<Name>ASP.NET Personal Design Web Site Template</Name>
+		<Description>A blank ASP.NET Personal Design Web Application Template</Description>
+		<Icon Package="{39c9c826-8ef8-4079-8c95-428f5b1c323f}" ID="4701"/>
+		<ProjectType>Web</ProjectType>
+		<ProjectSubType>CSharp</ProjectSubType>
+		<SortOrder>50</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>Personal Design</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<PromptForSaveOnCreation>true</PromptForSaveOnCreation>
+		<EnableEditOfLocationField>true</EnableEditOfLocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<LocationField>hidden</LocationField>
+	</TemplateData>
+	<TemplateContent>
+		<Project File="PersonalWebSiteWebApplicationCS.webproj" ReplaceParameters="false">
+			<ProjectItem>About.aspx</ProjectItem>
+			<ProjectItem>AppMaster.master</ProjectItem>
+			<ProjectItem>AppMaster.master.cs</ProjectItem>
+			<ProjectItem>Contact.aspx</ProjectItem>
+			<ProjectItem>Contact.aspx.cs</ProjectItem>
+			<ProjectItem>Default.aspx</ProjectItem>
+			<ProjectItem>EULA.rtf</ProjectItem>
+			<ProjectItem>Publications.aspx</ProjectItem>
+			<ProjectItem>Web.config</ProjectItem>
+			<ProjectItem>Web.sitemap</ProjectItem>
+			<Folder Name="App_Code">
+				<ProjectItem>PageBase.cs</ProjectItem>
+			</Folder>
+			<Folder Name="App_Data">
+				<ProjectItem>pubs.mdf</ProjectItem>
+				<ProjectItem>pubs_log.LDF</ProjectItem>
+			</Folder>
+			<Folder Name="App_Themes">
+				<Folder Name="Brown">
+					<ProjectItem>Default.skin</ProjectItem>
+					<ProjectItem>Styles.css</ProjectItem>
+					<Folder Name="Images">
+						<ProjectItem>bg_tile.gif</ProjectItem>
+						<ProjectItem>content_border.gif</ProjectItem>
+						<ProjectItem>dummy_img.jpg</ProjectItem>
+						<ProjectItem>header_img.jpg</ProjectItem>
+						<ProjectItem>header_img_border.gif</ProjectItem>
+						<ProjectItem>headertop_img_ds.gif</ProjectItem>
+						<ProjectItem>sidebar_bg.gif</ProjectItem>
+						<ProjectItem>topheader_deco_img.jpg</ProjectItem>
+					</Folder>
+				</Folder>
+				<Folder Name="Green">
+					<ProjectItem>Default.skin</ProjectItem>
+					<ProjectItem>Styles.css</ProjectItem>
+					<Folder Name="Images">
+						<ProjectItem>bg_tile.gif</ProjectItem>
+						<ProjectItem>content_border.gif</ProjectItem>
+						<ProjectItem>dummy_img.jpg</ProjectItem>
+						<ProjectItem>header_img.jpg</ProjectItem>
+						<ProjectItem>header_img_border.gif</ProjectItem>
+						<ProjectItem>headertop_img_ds.gif</ProjectItem>
+						<ProjectItem>sidebar_bg.png</ProjectItem>
+						<ProjectItem>topheader_deco_img.jpg</ProjectItem>
+					</Folder>
+				</Folder>
+				<Folder Name="Red">
+					<ProjectItem>Default.skin</ProjectItem>
+					<ProjectItem>Styles.css</ProjectItem>
+					<Folder Name="Images">
+						<ProjectItem>bg_tile.gif</ProjectItem>
+						<ProjectItem>content_border.gif</ProjectItem>
+						<ProjectItem>dummy_img.jpg</ProjectItem>
+						<ProjectItem>header_img.jpg</ProjectItem>
+						<ProjectItem>header_img_border.gif</ProjectItem>
+						<ProjectItem>headertop_img_ds.gif</ProjectItem>
+						<ProjectItem>sidebar_bg.png</ProjectItem>
+						<ProjectItem>topheader_deco_img.jpg</ProjectItem>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="Assets">
+				<Folder Name="Images">
+				<ProjectItem>brown_theme_thumb.jpg</ProjectItem>
+				<ProjectItem>green_theme_thumb.jpg</ProjectItem>
+				<ProjectItem>red_theme_thumb.jpg</ProjectItem>
+				</Folder>		
+			</Folder>
+			<Folder Name="Documentation">
+				<ProjectItem>Commerce.htm</ProjectItem>
+				<ProjectItem>Default.css</ProjectItem>
+				<ProjectItem>Personal.htm</ProjectItem>
+				<ProjectItem>Corporate.htm</ProjectItem>
+				<ProjectItem>Default.htm</ProjectItem>
+				<ProjectItem>SmallBusiness.htm</ProjectItem>
+			</Folder>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>ASP.NET Master Pages Templates</title>
+<link href="Default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="content">
+  <h1>Introduction to the ASP.NET Master Pages Template Set</h1>
+  <p>The <dfn>ASP.NET Master Pages Template Set</dfn> consists of four templates
+    demonstrating the powerful combination of <acronym>ASP.NET</acronym> master
+    pages and themes on the server and standard <acronym>XHTML</acronym> and <acronym>CSS</acronym> on
+    the client. Each template contains three original themes providing you with
+    a total of 12 different layouts to pick from and adapt to your needs in your
+    next ASP.NET 2.0 project. </p>
+  <p>The templates have been created with two purposes in mind:</p>
+  <ol>
+    <li> to provide you with a set of layouts you can take and adapt to your needs</li>
+    <li>to showcase best practices in regards to standard-based web design using
+      ASP.NET 2.0.</li>
+  </ol>
+  <p>The most commonly found page layouts on the Web today have either two or
+    three columns and either have a fixed width or adjust dynamically to the
+    width of the visitor's browser window. Therefore, the ASP.NET Master Pages
+    Template Set consists of templates that fulfill these requirements. Additionally,
+    each template is best suited for a particular purpose as indicated by its
+    name. They are:</p>
+  <ul>
+    <li><a href="SmallBusiness.htm">Small Business</a></li>
+    <li><a href="Personal.htm">Personal</a></li>
+    <li><a href="Corporate.htm">Corporate</a></li>
+    <li><a href="Commerce.htm">Commerce</a></li>
+  </ul>
+  <p>The following table shows the type of layout contained in each of the templates: </p>
+  <table width="400" border="1" cellpadding="3" style="border-collapse: collapse" bordercolor="#000000">
+    <caption style="text-align:left;font-size:smaller;" align="bottom">
+    Table 1: The available templates and their layout
+    </caption>
+    <tr>
+      <th width="124" scope="col" bgcolor="#000000"><div align="left">&nbsp;</div></th>
+      <th width="129" scope="col" bgcolor="#000000"><div align="center"> <font face="Verdana" color="#FFFFFF">Columns </font> </div></th>
+      <th width="121" scope="col" bgcolor="#000000"><div align="center"> <font face="Verdana" color="#FFFFFF">Width</font></div></th>
+    </tr>
+    <tr>
+      <th scope="row"><div align="left">Small Business</div></th>
+      <td><div align="center">2</div></td>
+      <td><div align="center">fixed</div></td>
+    </tr>
+    <tr>
+      <th scope="row"><div align="left">Personal</div></th>
+      <td><div align="center">2</div></td>
+      <td><div align="center">fluid</div></td>
+    </tr>
+    <tr>
+      <th scope="row"><div align="left">Corporate</div></th>
+      <td><div align="center">3</div></td>
+      <td><div align="center">fixed</div></td>
+    </tr>
+    <tr>
+      <th scope="row"><div align="left">Commerce</div></th>
+      <td><div align="center">3</div></td>
+      <td><div align="center">fluid</div></td>
+    </tr>
+  </table>
+  <p>While each template comes with its own documentation, this document serves
+    as a general introduction to the template set and its features.</p>
+  <p>Note: this documentation assumes basic familiarity with ASP.NET 2.0 master
+    pages, themes and skins as well as a working knowledge of CSS. If you need
+    to brush up on any of these subjects, you can do so using the <a href="http://www.asp.net/Tutorials/quickstart.aspx">ASP.NET
+    Quickstart tutorials</a> or <a href="http://www.w3schools.com/css/default.asp">basic
+    CSS tutorials</a>. </p>
+  <h2>Master Pages and CSS </h2>
+  <p>One of the most prominent new features of ASP.NET version 2.0 is a technique
+    called <a href="http://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx"><dfn>Master
+    Pages</dfn></a>. It provides the means to define the overall layout of an ASP.NET
+    application at a single point (the .master file) and reuse it in all content
+    pages that derive from the master. Updates to the layout can be done quickly
+    and will be applied to the content pages immediately.</p>
+  <p>The structure of each of the four templates is defined in a master page
+    in the application root. Aside from the sample content you will find the
+    markup in them to be rather bare-bones. If you're coming from a &quot;traditional&quot; school
+    of thought in Web design, the first thing you'll notice is the absence of
+    tables. The templates structure the content in a number of <code>div</code> elements
+    which usually have an <code>id</code> attribute assigned to them. The id
+    is then referenced by an associated CSS file where the actual formatting
+    takes place: the elements are placed at the desired locations on the page,
+    have background-images and -colors assigned and the appearance of their content
+    is determined. This way, a clear separation of content and design is achieved.
+    Both can be changed independently without influencing, or potentially breaking,
+    the other. Additionally, updates to the layout need to be done in one place
+    only &#8212; the CSS file. If you ever had to update even a relatively small site
+    that had content and presentational markup intermingled, you'll certainly
+    appreciate the advantage of this approach. </p>
+  <h3>If CSS is such a smart way to design web sites, then why isn't everybody
+    using it? </h3>
+  <p>Two reasons:</p>
+  <ol>
+    <li>CSS layouts are initially harder to create than conventional table-based
+      layouts</li>
+    <li>browser support for advanced CSS tends to be inconsistent.</li>
+  </ol>
+  <p>While reason # 1 can be overcome by simply learning CSS, # 2 can be nearly
+    a science in itself at times. <span style="font-size: 9pt; color: black; font-family: Verdana;
+          mso-fareast-font-family: 'MS Mincho'; mso-bidi-font-family: 'Times New Roman';
+          mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA">Differences
+          in the rendering engines of different browsers can often result in some rather odd page behavior upon previewing some of the CSS instructions you have written across
+          multiple browsers and operating systems.</span> The good news is, though,
+    that by now most of the browser rendering issues have been documented and several
+    workarounds exist to arrive at viable cross-browser CSS layouts (if you're interested, check
+    out <a href="http://www.positioniseverything.net">http://www.positioniseverything.net</a>,
+    one of several excellent resources on CSS in general and browser bugs in
+    particular). As far as the templates in the ASP.NET Master Pages Template
+    Set are concerned: you need not worry about necessary hacks and workarounds,
+    as these have already been applied in the style sheets that come with each
+    template. In fact, the templates will work correctly (or degrade gracefully)
+    in all modern browser versions including Firefox, Opera and Safari, as well
+    as in versions 5.0, 5.5 and 6.0 of Internet Explorer for Windows. IE 5.0
+    and 5.5 will have some minor glitches, but will mostly play along nicely,
+    too. </p>
+  <h2>Themes and Skins </h2>
+  <p>Master Pages aren't the only new design-related feature of ASP.NET 2.0.
+    Web developers are also provided with the ability to assign <dfn>themes</dfn> and <dfn>skins</dfn> to
+    controls, pages or entire web sites, respectively. A <a href="http://msdn.microsoft.com/en-us/library/ykzx33wh">theme</a> is
+    essentially a collection of files that determine the appearance of web application
+    elements, such as pages and controls. Themes can include images, CSS files
+    and <a href="http://msdn.microsoft.com/en-us/library/ykzx33wh">skin</a> files,
+    where the latter specifically set visual properties of ASP.NET controls.</p>
+  <p>Each of the templates in the ASP.NET Master Pages Templates Set contains
+    three themes. As you will see when you start experimenting with the templates,
+    applying a different theme can dramatically change a web application's appearance    &#8212; without necessitating changes in the code of any of the content pages.
+    ASP.NET 2.0 takes web developers a large step forward on the road to strict
+    separation of presentation and content. </p>
+  <h3>Effective use of skins</h3>
+  <p>There are two main approaches to skinning controls, for example a text box.
+    Let's say you want to achieve a uniform visual appearance of all text boxes
+    in your application. They should all look like this:  </p>
+  <p>
+    <input name="textfield" type="text" style="border:1px solid #933126; background-color:#F7DE8A;" />
+  </p>
+  <p>The most straightforward approach to skinning this control would be the
+    declaration of a <dfn>default skin</dfn> for the ASP.NET <code>TextBox</code> control
+    in the .skin file:</p>
+  <p><code>&lt;asp:TextBox runat=&quot;server&quot; BackColor=&quot;#F7DE8A&quot; BorderColor=&quot;#933126&quot; BorderStyle=&quot;Solid&quot; BorderWidth=&quot;1px&quot; /&gt;</code></p>
+  <p>While this works just fine when you preview it in the browser, there is
+    another, more elegant way to achieve the same visual result: create a class
+    rule in the CSS file and reference this rule from the skin file, as in the
+    following example:</p>
+  <ul>
+    <li>In <em>Styles.css</em>: <code>.textBox {border:1px solid #933126; background-color:#F7DE8A;}</code> </li>
+    <li>In <em>Default.skin</em>: <code>&lt;asp:TextBox runat=&quot;server&quot; CssClass=&quot;textBox&quot; /&gt;</code></li>
+  </ul>
+  <p>This way, you keep all the visual elements, such as colors, in the style
+    sheet and can manage them from one central location. Besides, let's suppose
+    you want to assign a background image to all the text boxes later on. Since
+    there is no way to do this directly in a skin file (ASP.NET controls don't
+    provide a <code>background-image</code> property for you to use) you would
+    have to create a separate CSS class anyway. Scattering formatting instructions
+    across both style sheets and skin files makes site maintenance a lot harder
+    than it should be. </p>
+  <p>No rule without exceptions, however: it is not very efficient to burden
+    the global style sheet with rules that apply to a single control on a single
+    page only; likewise, styling a complex control, such as the <code>GridView</code> might
+    require the creation of 10 or more classes in the style sheet, which may
+    or may not be an approach you want to take. </p>
+  <p>You'll find that the skin files in the ASP.NET Master Pages Template Set
+    mostly reference existing classes in the style sheets and use direct styling
+    in the skin files where necessary.</p>
+  <h3>Themes versus StylesheetThemes </h3>
+  <p>You may be wondering if you'll still be able to change visual properties
+    of controls on pages that have a theme assigned. After all, individual adjustments
+    are sometimes necessary and you wouldn't want to be restricted by a theme
+    once it has been set. The answer is that all templates permit overriding
+    of the values defined in a theme, which means that in your page code you
+    can assign any visual properties at will and rest assured they'll be taken
+    into account when the page gets rendered to the browser. </p>
+  <p>This is achieved by taking advantage of the distinction between a <code>Theme</code> and
+    a <code>StylesheetTheme</code>, as described in the <a href="http://msdn.microsoft.com/en-us/library//ykzx33wh">MSDN
+    documentation</a> (see the section entitled &quot;Theme Settings Precedence&quot;).
+    In short, the main difference between the two properties is the position
+    in the page rendering life-cycle where they are applied: a <code>StylesheetTheme</code> is
+    assigned early on in the process, before the user-defined formatting instructions
+    have taken effect; a <code>Theme</code>, however, comes last and gets merged
+    with any earlier existing settings. All templates work exclusively with the <code>StylesheetTheme</code>,
+    so whatever instructions you may have assigned to controls on a page will
+    be honored. </p>
+  <p>Note: while there is a technical difference between a <code>Theme</code> and
+    a <code>StylesheetTheme</code>, this documentation will continue to refer
+    to both using the generic term <em>theme</em>. </p>
+  <h3>Assigning themes to content</h3>
+  <p>ASP.NET offers a number of ways to assign a theme to content pages. You
+    can either add a <code>Theme</code> or <code>StylesheetTheme</code> property
+    to the <code>@Page</code> directive at the top of the page, like this:</p>
+  <p><code>&lt;%@ Page Language=&quot;C#&quot; <strong>StylesheetTheme</strong>=&quot;Fruits&quot; %&gt;</code></p>
+  <p>or you can assign the theme globally to the entire application by adding
+    the following instruction to the web.config file: </p>
+  <p><code>&lt;system.web&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(...)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;pages <strong>styleSheetTheme</strong>=&quot;Fruits&quot; /&gt; <br />
+&lt;/system.web&gt;</code></p>
+  <p>For obvious reasons &#8212; most prominently easier maintenance &#8212;,
+    the templates in the ASP.NET Master Pages Templates Set use the second method &#8212; with
+    the exception of the <a href="Personal.htm">Personal</a> template which sets
+    the theme programmatically.</p>
+  <h2>Style sheets overview</h2>
+  <p>From the above explanations it should be pretty clear that the CSS files
+    are truly at the heart of each template. And indeed, they determine the page
+    structure, the colors and the images that are used to create a specific layout.
+    So lets have a closer look at how the CSS is organized.</p>
+  <p>As a general rule, each theme has a single CSS file that contains the bulk
+    of the formatting instructions for the theme. Adjustments to the design of
+    a theme will happen almost exclusively in the CSS file. The rules in each
+    CSS file are arranged in the order the corresponding elements appear in the
+    master page. For compatibility with IE version 5.5 and 5.0, some of the master
+    pages contain a short <code>&lt;style&gt;</code> block in the head of the
+    document which is wrapped in a <a href="http://msdn.microsoft.com/workshop/author/dhtml/overview/ccomment_ovw.asp">conditional
+    comment</a> . The rules in there will rarely have to be changed but you should
+    be aware of them nevertheless in case things go awry in IE 5.x. </p>
+  <h3>Duplicate style rules </h3>
+  <p>As you know, there is one CSS file per theme and there are three themes
+    per template. Naturally, there are duplicate rules in the CSS files which
+    could have been moved to a separate style sheet. For example, the basic rules
+    for constructing the page grid (defining which element box goes where and
+    has which dimensions) are nearly identical across all themes. The reason
+    they were repeated in each style sheet rather than moved to a global file
+    lies in the intended ease of modification of the themes. This way, you can
+    deconstruct the layout by simply studying one file and make all your
+    changes there. Having to mentally &quot;merge&quot; style rules scattered
+    across several files is unwieldy at best and complicates the customization
+    process. </p>
+  <h3>Styling pages for printing</h3>
+  <p>At the end of each CSS file you will find a style block introduced by an <a href="http://www.w3.org/TR/REC-CSS2/media.html#at-media-rule">@media
+      print rule</a>. The rules contained in this block work in conjunction with
+      the existing rules further up in the style sheet and specifically apply
+      when the user prints a page from the browser. CSS allows a page author
+      to exert a significant amount of control over the appearance of printed
+      pages. Unfortunately, browser support is not uniformly up to what the CSS
+      specification defines, but the print style sheets provided should nevertheless
+      do their job satisfactorily. </p>
+  <h3>CSS rule structure</h3>
+  <p>You may be aware of the fact that pure CSS layouts can be a bit &quot;sensitive&quot; to
+    change. Remember, that the way they are built is by defining distinct boxes
+    that hold the content and then stacking theses boxes neatly on top and next
+    to each other. Therefore, if you inadvertently make a change at the wrong
+    place, the precise arrangement of boxes might get disrupted &#8212; resulting
+    in a broken layout. In order to assist you in getting the most out of the
+    templates, all the rules in the style sheets have been structured according
+    to a specific convention. The &quot;unsafe&quot; properties which could potentially
+    damage the layout if changed are at the top, while the ones that can be modified
+    without problems are at the bottom. Let's look at an example rule: </p>
+  <p><code>#header {<br />
+&nbsp;&nbsp;position:relative;<br />
+&nbsp;&nbsp;height:140px;<br />
+&nbsp;&nbsp;margin:0;<br />
+&nbsp;&nbsp;border-left:10px solid #FFFFFF;<br />
+&nbsp;&nbsp;background-color:#85B94A;<br />
+&nbsp;&nbsp;background-image:url(Images/header_bg.gif);<br />
+&nbsp;&nbsp;background-repeat:no-repeat;<br />
+&nbsp;&nbsp;background-position:top right;<br />
+    }</code></p>
+  <p>The <code>position</code>, <code>height</code>, <code>margin</code> and <code>border-left</code> properties
+    all influence the arrangement of the boxes and thus should be modified with
+    care only. These properties are located at the top of the rule. <code>background-color</code>, <code>background-image</code>, <code>background-repeat</code> and <code>background-position</code>,
+    however will have no bearing on the overall page grid, so they are located
+    at the bottom of the rule.</p>
+  <p><a name="unsafeProperties" id="unsafeProperties"></a>Here is a list of the
+    most common &quot;unsafe&quot; properties for reference:</p>
+  <ul>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#display-prop">display</a></code></li>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#floats">float</a></code> </li>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#propdef-clear">clear</a></code></li>
+    <li> <code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#propdef-position">position</a></code> and
+      the related properties <code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#propdef-top">top</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#propdef-right">right</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#propdef-bottom">bottom</a></code> and <code><a href="http://www.w3.org/TR/REC-CSS2/visuren.html#propdef-left">left</a></code>.</li>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/visudet.html#propdef-width">width</a></code></li>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/visudet.html#propdef-height">height</a></code></li>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-margin">margin</a></code> (including <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-margin-top">margin-top</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-margin-right">margin-right</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-margin-bottom">margin-bottom</a></code> and <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-margin-left">margin-left</a></code>)</li>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-border">border</a></code> (including <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-border-top">border-top</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-border-right">border-right</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-border-bottom">border-bottom</a></code> and <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-border-left">border-left</a></code>)</li>
+    <li><code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-padding">padding</a></code> (including <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-padding-top">padding-top</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-padding-right">padding-right</a></code>, <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-padding-bottom">padding-bottom</a></code> and <code><a href="http://www.w3.org/TR/REC-CSS2/box.html#propdef-padding-left">padding-left</a></code>) </li>
+  </ul>
+  <p>Property declarations other than the above can be customized without having
+    to worry about potential negative side effects. </p>
+  <p>The general principle is: modify the declarations within a rule from the
+    bottom and try to leave the &quot;unsafe&quot; declarations as is. If you're
+    familiar with the CSS <a href="http://www.w3.org/TR/REC-CSS2/box.html">box-model</a>, <a href="http://www.w3.org/TR/REC-CSS2/visuren.html#floats">floating</a> and <a href="http://www.w3.org/TR/REC-CSS2/visuren.html#positioning-scheme">positioning</a>,
+    however, you're of course free to modify the styles to your hearts content. </p>
+  <h2>Design templates vs. reference applications</h2>
+  <p>This might be stating the obvious, but please be aware that even though
+    some of the templates show some dynamic behavior (reading from a database,
+    gathering products in a shopping cart etc.) these templates are intended
+    to be used as <em>design</em> models for web sites or applications. They
+    are not ASP.NET reference applications. No input validation is performed
+    nor will you find any form of exception handling anywhere. All these tasks
+    are assumed to be taken care of by you, the ASP.NET programmer once you decide
+    to use one of the templates in a real-world application. </p>
+</div>
+</body>
+</html>

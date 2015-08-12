@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>&quot;Small Business&quot; Template</title>
+<link href="Default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="content">
+  <h1>&quot;Small Business&quot; Template </h1>
+  <p>This template can be used for a small-business or personal web site. The
+    layout is based on a fixed-width structure composed of two columns that
+    are centered on the page, with a large clickable header image across the
+    top and the main navigation menu on the left hand side.</p>
+	<p>Note: general features of this template which are common to all templates 
+	are described in the <a href="Default.htm">introduction to the template set</a>. Make sure to read 
+	this document first if you haven't done so already.</p>
+  <h2>Main features</h2>
+  <h3>Themes</h3>
+  <p>The template comes with three distinctly different themes, called <em>Forest</em>, <em>Fruits</em> and <em>Literature</em>.
+    The desired theme is set in the web.config file in the application root.
+    Set the <code>stylesheetTheme</code> attribute of the <code>pages</code> element
+    to the name of one of the themes and view the result in the browser. </p>
+  <p>Notice that the home page layout differs from the layout of the other sample
+    pages and that the content pages feature varying header images. </p>
+  <h3>Menu and breadcrumbs</h3>
+  <p>The main menu is an instance of the ASP.NET <code>Menu</code> control with
+    dynamic submenu items. Both the menu and the <code>SiteMapPath</code> control
+    above it derive their content from the <em>web.sitemap</em> file. If
+    you add new pages to the site make sure you also place corresponding entries
+    in the sitemap so the pages will be displayed correctly in the menu and the
+    breadcrumbs. </p>
+  <h3>Source-ordered XHTML </h3>
+  <p>If you view the XHTML output of this template, you will notice that even
+    though the menu is rendered to the left of the main content, its code is
+    actually placed <em>after</em> it in the source. This means that search engines
+    won't have to wade through lots of menu code before they get to the actual
+    site content, which in turn is likely to improve your content's ranking. </p>
+  <h3>Accessibility</h3>
+  <p>The contact form found in <em>Contact.aspx</em> is in compliance with <a href="http://www.w3.org/TR/WAI-WEBCONTENT/checkpoint-list.html">Priority
+      1 checkpoints</a> of the <a href="http://www.w3.org/TR/WAI-WEBCONTENT/">W3C
+      Web Content Accessibility Guidelines (WCAG 1.0</a>) as well as <a href="http://www.section508.gov/index.cfm?FuseAction=Content&amp;ID=12#Web">&sect; 1194.22
+      of Section 508</a>. Use the techniques shown there for your own forms as
+  well, so they'll be accessible for site visitors with disabilities.</p>
+  <h3>Database</h3>
+  <p>The template includes a SQL Server Express version of the <dfn>Northwind</dfn> database
+    for displaying dynamic product data in the <code>GridView</code> on the <em>Products.aspx</em> page.
+    You may have to grant read and write permissions on the<em> Northwind.mdf</em> file
+    located in the <em>App_Data</em> directory to the ASP.NET process account
+    (ASPNET on IIS 5.x, NETWORK SERVICE on IIS 6) if you encounter errors when
+    trying to view the <em>Products.aspx</em> page. </p>
+  <p>If you don't want to use
+      the SQL Express database, simply change the connection string in the <em>connectionStrings</em> section
+      of the web.config file to point to a different destination. </p>
+  <h3>Designer support </h3>
+  <p>The web form designer in Visual Studio 2005 and Visual Web Developer Express
+    2005 has been greatly improved over the one contained in Visual Studio 2003.
+    Therefore, you can use the designer to edit the content pages of this template
+    even though the layout is purely CSS-driven. </p>
+  <h3>Custom Expression Builder</h3>
+  <p>The home page of the sample application has a layout which is distinctly
+    different from the layout used in the remaining pages. In terms of CSS this
+    is achieved by overriding style rules defined in the 
+    global style sheet on the page level. Since this requires different styles
+    for each theme, a method had to be found to dynamically import an external
+    style sheet appropriate to the current theme into a specific page. ASP.NET
+    provides no built-in facilities for this, since any .css file in a theme
+    will always be linked to any page that has that theme assigned and there
+    is no way to selectively load or unload a style sheet contained in a theme. </p>
+  <p>ASP.NET 2.0 introduced a new snytax for declarative expressions which
+    are evaluated at the time the page is parsed. This is most commonly used
+    to dynamically read connection strings from the application's configuration
+  file, as in this example: </p>
+  <p><code>&lt;asp:SqlDataSource ID=&quot;dsProducts&quot; runat=&quot;server&quot; <br />
+&nbsp;    ConnectionString=&quot;<strong>&lt;%$
+      ConnectionStrings:NorthwindConnectionString %&gt;</strong>&quot;<br />
+    &nbsp;&nbsp;SelectCommand=&quot;SELECT * FROM
+  products&quot;/&gt;</code></p>
+  <p>As it turns out, there is a way to create custom expressions like this
+    using the abstract <a href="http://msdn2.microsoft.com/en-us/library/c3shk20a(en-US,VS.80).aspx">ExpressionBuilder</a> class.
+    You can find a custom <code>ThemesExpressionBuilder</code> implementation
+    in the <em>App_Code</em>    directory. It's use is demonstrated in the home
+  page (<em>Default.aspx</em>): </p>
+  <p><code>&lt;style type=&quot;text/css&quot;&gt;<br />
+    &nbsp;&nbsp;@import url(&lt;asp:Literal runat=&quot;server&quot; Text=&quot;<strong>&lt;%$
+    Themes:StylesheetTheme(~/Assets/CSS/{0}_Home.css) %&gt;</strong>&quot; /&gt;); <br />
+  &nbsp;&nbsp;(...)<br />
+&lt;/style&gt;</code></p>
+  <p>The expression reads the currently set <code><a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.page.stylesheettheme">StylesheetTheme</a></code> from
+    the <code>pages</code> section
+    in the web.config file and fills the <code>{0}</code> placeholder with the
+    value found. See the <em>ThemesExpressionBuilder.cs</em> file in the <em>App_Code</em> directory
+    for more information on the possible configuration options of the class. </p>
+  <h2>Template structure</h2>
+  <p>As described in the <a href="Default.htm">introduction to the template set</a>,
+    the structure of each template is defined in the master page and the theme
+    style sheet. All the page
+    content is included in a wrapper <code>div</code> element
+    named <dfn>mainwrapper</dfn>,
+    which is centered on the page. It contains the header as well as the main
+    content and menu <code>div</code> elements. The main content <code>div</code> (named <dfn>copy</dfn>)
+    has a 240px left margin assigned which leaves just enough room for the menu.
+    The menu is placed in the gap between <em>copy</em> and <em>mainwrapper's</em> left
+    edge using <a href="http://www.w3.org/TR/REC-CSS2/visuren.html#absolute-positioning">absolute
+    positioning</a>.</p>
+  <p>The look of each theme is achieved by a combination of background
+    colors and background images that are assigned to specific <code>div</code> elements
+    of the master page. See the style sheet for further details. </p>
+  <p>The <em>Forest</em> theme achieves the effect of a left column running
+    all the way down behind the menu by using a clever CSS technique called <dfn>Faux&nbsp;Columns</dfn> (see <a href="http://www.alistapart.com/articles/fauxcolumns">this
+    article</a> for a full description of how it works).</p>
+  <h2>Customizing the template </h2>
+  <p>Modifying a template's design to suit your needs is done almost exclusively
+    in the CSS and .skin files of a theme. The recommended approach to customizing
+    a theme is to make a copy of the one that most closely resembles the look
+    you're going for in the <em>App_Themes</em> directory and give
+    it a new name. The main areas of customization of this template are: company
+    name and logo, colors, background images and, of course, the page content.</p>
+  <h3>Company name and logo</h3>
+  <p>The name of the site owner is set in the master page, whereas the logo
+    image is set in the skin file (it has the <code>SkinID</code> <em>logoImage</em>).
+    The <code>div</code> with
+    the id <em>branding</em> contains
+    two child elements named <em>companyName</em>    and <em>logoImage</em> respectively. <em>branding</em>    is
+    absolutely positioned so you can modify the <code>bottom</code> and <code>right</code> property
+    values to move the content to the desired location.</p>
+  <h3>Images</h3>
+  <p>The images used to create the design of each theme are stored in the <em>Images</em>    subfolder
+    of the theme. Some
+    images have very specific widths or heights to make them fit into the layout.
+    If you want to stay on the safe side when editing the supplied images in
+    a graphics program, try not to change any image dimensions. Note that this
+    warning only applies to images used for layout purposes, such as background-tiles.
+    There is no restriction on modifying pictures used in the page
+    contents, of course.</p>
+  <h4>Header images</h4>
+  <p>The content pages of this theme feature a number of different header images.
+    You can replace the supplied images with your own. Defining which of the
+    images should be displayed in the header  of a page works like this: </p>
+  <ol>
+    <li> Find the <code>SkinID</code> of the image you want to display in the skin file. The
+      header image entries are located at the top of the file.</li>
+    <li>Open the .aspx page and add the following code: <code><br />
+        <br />
+      &lt;asp:Content
+        ID=&quot;Content1&quot; ContentPlaceHolderID=&quot;mastheadPh&quot; Runat=&quot;Server&quot;&gt;<br />
+&nbsp;&nbsp;&lt;asp:ImageMap ID=&quot;masthead&quot; runat=&quot;server&quot; SkinID=&quot;<strong>masthead3</strong>&quot; /&gt;<br />
+&lt;/asp:Content&gt;</code><br />
+</li>
+    <li>  Replace the <code>SkinID</code> of the <code>asp:ImageMap</code> element
+  (highlighted in the above code snippet) with the value you determined in step
+  1. </li>
+  </ol>
+  <h3>Page content </h3>
+  <p>Before you start to add content to the pages of your themed application
+    it is a good idea to study the sample pages provided with each template as
+    well as the master page. Sections that require specific markup are commented
+    and contain instructions on what the markup should look like so it will actually
+    pick up the styles set in the style sheet and the skin file. </p>
+</div>
+</body>
+</html>

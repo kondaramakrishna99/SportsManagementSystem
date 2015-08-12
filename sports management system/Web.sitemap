@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title=""  description="">
+        <siteMapNode url="~/Default.aspx" title="Home"  description="Home page" >
+        </siteMapNode>
+        <siteMapNode url="" title="Sports"  description="Who I am" >
+          <siteMapNode url="~/listtournaments.aspx" title="tornament list"  description="click to see available tournaments" >
+            <siteMapNode url="~/listteams.aspx" title="listteams" description="modify list teams" />
+          </siteMapNode>
+             <siteMapNode url="~/temp_tournaments.aspx" title="insert tournament">
+               <siteMapNode url="~/CricketTeam.aspx" title="cricketTeam" description="Select cricket team"/>
+             </siteMapNode>
+          <siteMapNode url="~/teams.aspx" title="insert teams"/>
+          <siteMapNode url="~/temp_players.aspx" title="insert Players"/>
+       </siteMapNode>
+    
+    <siteMapNode url="~/NewItem.aspx" title="Add Item"  description="New item" />
+    <siteMapNode url="~/funds_maintainance.aspx" title="funds_infra repair"  description="infrastructure repair" />
+    <siteMapNode url="~/person_payment.aspx" title="person_payment"  description="paying for normal purposes" />
+    <siteMapNode url="~/funds_repair.aspx" title="funds_inventory"  description="inventory repair" />
+    <siteMapNode url="~/RegisterNewUser.aspx" title="Register"  description="New User for sports authrity" />
+		<siteMapNode url="~/tempRemovingUser.aspx" title="removeuser"  description="Contact me" />		
+    </siteMapNode>
+</siteMap>

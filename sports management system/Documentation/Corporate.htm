@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>&quot;Corporate&quot; Template</title>
+<link href="Default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="content">
+  <h1>&quot;Corporate&quot; Template </h1>
+  <p>This template has been specifically designed to accommodate large amounts
+    of content. It features a three-column, fixed-width layout that includes
+     two sidebars, a main menu and individual section menus. Room for
+    personalization features has been provided in the left sidebar and you can
+    put banners at the top if you wish (though this hasn't been implemented in
+     the sample pages). </p>
+	<p>Note: general features of this template which are common to all templates 
+	are described in the <a href="Default.htm">introduction to the template set</a>. Make sure to read 
+	this document first if you haven't done so already.</p>
+  <h2>Main features</h2>
+  <h3>Themes</h3>
+  <p>The template comes with three different themes, called <em>Granite</em>, <em>Sand</em> and <em>Paper</em>.
+    The desired theme is set in the web.config file in the application root.
+    Set the <code>stylesheetTheme</code> attribute of the <code>pages</code> element
+    to the name of one of the themes and view the result in the browser. </p>
+  <h3>Menu and breadcrumbs</h3>
+  <p>The main menu is an instance of the ASP.NET <code>Menu</code> control spanning
+    the top of the center column. Both the menu and the <code>SiteMapPath</code> control
+    beneath it derive their content from the <em>web.sitemap</em> file. When
+    the user clicks on one of the section links in the top menu, the pages belonging
+    to the selected section are displayed in a submenu at the top of the left
+    sidebar. This is a second instance of the <code>Menu</code> control
+    which is  bound to the application's site map, too. </p>
+  <p>If you add new pages to the site, make sure you also place corresponding
+    entries in the site map so the pages will be displayed correctly in the top
+    and sidebar menus as well as the breadcrumbs.</p>
+  <p>Note: dynamic (dropdown or flyout) submenu items for the menus are not supported
+  in this release of the template.</p>
+  <h3>Source-ordered XHTML </h3>
+  <p>If you view the XHTML output of this template, you will notice that the
+    main content of each page is placed before the content of both the left and
+    right sidebar. This means that search engines won't have to parse lots of
+    sidebar content (which is usually secondary in importance) before they get
+    to the actual content to be indexed. This is likely to improve your content's
+    ranking. </p>
+  <h3>Accessibility</h3>
+  <p>The master page, the sample pages and the contact form  in <em>Contact.aspx</em> are
+    in compliance with <a href="http://www.w3.org/TR/WAI-WEBCONTENT/checkpoint-list.html">Priority
+      1 checkpoints</a> of the <a href="http://www.w3.org/TR/WAI-WEBCONTENT/">W3C
+      Web Content Accessibility Guidelines (WCAG 1.0</a>) as well as <a href="http://www.section508.gov/index.cfm?FuseAction=Content&amp;ID=12#Web">&sect; 1194.22
+      of Section 508</a>. Use the techniques shown there for your own pages as
+  well, so they'll be accessible for site visitors with disabilities.</p>
+  <h3>Database</h3>
+  <p>The template includes a SQL Server Express version of the <dfn>pubs</dfn> sample
+    database for displaying a list of books on various <em></em> pages.
+    You may have to grant read and write permissions on the<em> pubs.mdf</em> file
+    located in the application's <em>App_Data</em> directory to the ASP.NET process
+    account (ASPNET on IIS 5.x, NETWORK SERVICE on IIS 6) if you encounter errors
+  when trying to view the data-driven pages.</p>
+  <p>If you don't want to use the SQL Express database, simply change the connection
+    string in the <em>connectionStrings</em> section of the <em>web.config</em> file to
+  point to a different destination.</p>
+  <h3>Designer support </h3>
+  <p>The web form designer in Visual Studio 2005 and Visual Web Developer Express
+    2005 has been greatly improved over the one contained in Visual Studio 2003.
+    Unfortunately, though, it has trouble displaying all three columns of this
+    layout next to each other, resulting in the left column being pushed down
+    below the content. While this isn't as aesthetically pleasing as it could
+    be, you can still edit the content using the designer and take advantage
+    of its features. </p>
+  <h2>Template structure</h2>
+  <p>The three-column grid of this template is based on a reference CSS layout
+    called the <a href="http://www.positioniseverything.net/piefecta-rigid.html"><em>Rigid
+    Piefecta</em></a>, which was created by the folks at <a href="http://www.positioniseverything.net">positioniseverything.net</a>,
+    an excellent resource for all things CSS. 
+    See their sample and its source code for a description of how the elements
+    work together to make the layout work. </p>
+  <p>The <code>div</code> elements in the master page are named according to
+    their function so you should be able to understand the purpose of each relatively
+    quickly. Comments have been added for clarity.</p>
+  <p>As with all  other templates, the look of each theme is achieved by a
+    combination of background colors and background images that are assigned
+    to specific <code>div</code> elements
+    of the master page. See the style sheet for further details. </p>
+  <h2>Customizing the template </h2>
+  <p>Modifying a template's design to suit your needs is done almost exclusively
+    in the CSS and .skin files of a theme. The recommended approach to customizing
+    a theme is to make a copy of the one that most closely resembles the look
+    you're going for in the <em>App_Themes</em> directory and give it a new name.
+    The main areas of customization of this template are: company logo,
+    colors, background images and, of course, the content of the page and the
+    sidebars.</p>
+  <p>Note: be careful when changing dimensions, such as <code>width</code>, <code>height</code>, <code>margin</code> etc.
+    in the style sheet. The layout, while working stably across across nearly
+    all modern browser versions, is composed of a very intricate structure that
+    should be changed only after studying and thoroughly understanding the <a href="http://www.positioniseverything.net/piefecta-rigid.html">Rigid
+    Piefecta</a> layout, since even relatively small changes at the wrong place
+    can break the layout. This warning applies only to changes to <a href="Default.htm#unsafeProperties">layout-critical
+    CSS properties</a> as described in the <a href="Default.htm">general introduction
+  to the template set</a>.</p>
+  <h3>Company logo</h3>
+  <p>The logo is placed in its own div element, aptly named <em>logo</em>. Technically,
+    there is no restriction on the width of the logo image, but the
+    image height shouldn't exceed the height of the sample logo of each theme. </p>
+  <h3>Images</h3>
+  <p>The images used to create the design of each theme are stored in the <em>Images</em> subfolder
+    of the theme. Some images have very specific widths or heights to make them
+    fit into the layout. If you want to stay on the safe side when editing the
+    supplied images in a graphics program, try not to change any image dimensions.
+    Note that this warning only applies to images used for layout purposes, such
+    as background-tiles. There is no restriction on modifying pictures used in
+    the page contents, of course.</p>
+  <h3>Page and sidebar content </h3>
+  <p>Before you start to add content to the pages of your themed application
+    it is a good idea to study the sample pages provided with each template as
+    well as the master page. Sections that require specific markup are commented
+    and contain instructions on what the markup should look like so it will actually
+    pick up the styles set in the style sheet and the skin file. </p>
+  <p>To simplify managing the sidebar content, you may want to consider encapsulating
+    a number of  reusable sidebars in ASP.NET User Controls and then assigning
+    these as the content of the sidebar placeholders in the aspx pages. </p>
+</div>
+</body>
+</html>

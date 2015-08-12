@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>&quot;Commerce&quot; Template</title>
+<link href="Default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="content">
+    <h1>&quot;Commerce&quot; Template </h1>
+    <p>This template has been designed with an online-shopping scenario in mind,
+      but it can be used for a wide variety of other purposes as well. Its layout
+      consists of three columns with the main navigation menu at the top of the
+      page. </p>
+    <p>The layout has a &quot;fluid&quot; width, which means that it adjusts
+      its size to the user's browser window. While this is nothing spectacular
+      in itself, there is some added benefit for users with large
+      monitors: the content expands only to a certain point after which it doesn't
+      get any wider anymore. The result is greatly increased readability of your
+      content since the lines of text will never extend beyond a comfortable
+      width. Likewise, the content won't ever be squashed to a point beyond
+      legibility when the user narrows the browser window.</p>
+	<p>Note: general features of this template which are common to all templates 
+	are described in the <a href="Default.htm">introduction to the template set</a>. Make sure to read 
+	this document first if you haven't done so already.</p>
+    <h2>Main features</h2>
+    <h2>Themes</h2>
+    <p>The template comes with three distinctly different themes called <em>Magnolia</em>, <em>Jazz</em> and <em>Snow</em>.
+      The desired theme is set in the <em>web.config</em> file in the application root.
+      Set the <code>stylesheetTheme</code> attribute of the <code>pages</code> element
+    to the name of one of the themes and view the result in the browser. </p>
+    <h3><a name="fluid" id="fluid"></a>Fluid, but not really</h3>
+    <p>As described in the introduction to this template, the content of a page,
+      though essentially fluid, will never extend beyond a comfortable reading
+      width&#8212; regardless of the width of the user's browser window. This
+      behavior is achieved by taking advantage of a very clever CSS layout technique
+      named the <em>Jello Mold</em> and invented by <a href="http://uwmike.com/">Mike
+      Purvis</a>. Mike has written an <a href="http://www.positioniseverything.net/articles/jello-expo.html">in-depth
+      article</a> explaining the inner workings of the technique. This article
+      is highly recommended reading if you plan to make major layout changes
+      to the template. </p>
+    <h3>Menu</h3>
+    <p>The main menu is an instance of the ASP.NET <code>Menu</code> control
+      which<code></code> derives the page information from the <em>web.sitemap</em> file
+      in the site root directory. If you add new pages to the site, make sure
+      you also place corresponding entries in the sitemap so the pages will be
+      displayed correctly in the menu. </p>
+    <p>Note: dynamic (dropdown) submenu items for the menu are not supported
+      in this release of the template.</p>
+    <h3>Treeview</h3>
+    <p>Some of the  sample pages of this template contain an instance of the
+      ASP.NET <code>Treeview</code> control used for simulating hierarchical
+      product categories. See the notes on customizing the <code>Treeview</code> <a href="#treeviewCustomization">below</a>. </p>
+    <h3>Accessibility</h3>
+    <p>The sample pages  of this theme (with the exception of the ones using
+      the
+      <code>Treeview</code> control) are in compliance with <a href="http://www.w3.org/TR/WAI-WEBCONTENT/checkpoint-list.html">Priority
+        1 checkpoints</a> of the <a href="http://www.w3.org/TR/WAI-WEBCONTENT/">W3C
+        Web Content Accessibility Guidelines (WCAG 1.0</a>) as well as <a href="http://www.section508.gov/index.cfm?FuseAction=Content&amp;ID=12#Web">&sect;&nbsp;1194.22
+        of Section 508</a>. Use the techniques shown there for your own pages
+        as well, so they'll be accessible for site visitors with disabilities.</p>
+    <p>The <code>Treeview</code> control relies on JavaScript for displaying
+      child nodes in a hierarchy, which violates paragraph <em>(m)</em>      of <a href="http://www.section508.gov/index.cfm?FuseAction=Content&amp;ID=12#Web">&sect;&nbsp;194.22
+      of Section 508</a>. If your applications
+      have to be 100% Section 508-compliant, you may have to forego using the
+      <code>Treeview</code> control and use a <code>Menu</code> control instead. </p>
+    <h3>Database</h3>
+    <p>The template includes a SQL Server Express version of the <dfn>Northwind</dfn> database
+      for displaying dynamic product data in various pages. You may have to grant
+      read and write permissions on the<em> Northwind.mdf</em> file
+      located in the <em>App_Data</em> directory to the ASP.NET process account
+      (ASPNET on IIS 5.x, NETWORK SERVICE on IIS 6) if you encounter errors when
+    trying to view the data-driven pages. </p>
+    <p>If you don't want to use the SQL Express database, simply change the connection
+      string in the <em>connectionStrings</em> section of the <em>web.config</em> file
+      to point to a different destination. </p>
+    <h3>Designer support </h3>
+    <p>Due to the complexity of the layout, the web form designer in Visual Studio
+      2005 and Visual Web Developer Express 2005 doesn't display
+      the master page itself (<em>MasterPage.master</em>) correctly, but editing
+      the content pages derived from the master works without problems. </p>
+    <h2>Template structure</h2>
+    <p>The first thing you'll probably notice when inspecting the master page
+      of this template is a set of nested <code>div</code> elements below the <code>body</code> tag
+      called <em>sizer</em>, <em>expander</em> and <em>wrapper</em>. These are
+      necessary to make the semi-fuid layout (the <em>Jello Mold</em>, see <a href="#fluid">above</a>)
+      work. The remaining <code>div</code> elements structure the actual page content.
+      Their names indicate their purpose so you should be able to find your way
+      around the element hierarchy pretty quickly. </p>
+    <p>For stability reasons, the main content <code>div</code> had to be positioned
+      after the two sidebar <code>div</code> elements in the XHTML source. To
+      avoid burdening users of assistive devices with the sidebar content on
+      every page before they can access the main content, a &quot;Skip to main content&quot;
+      link has been placed at the top of the template. This link is not visible
+      in browsers, but will appear in assistive devices such as screen readers. </p>
+    <p>The look of each theme is achieved by a combination of background colors
+      and background images that are assigned to specific <code>div</code> elements
+      of the master page. See the style sheet for further details. </p>
+    <h2>Customizing the template </h2>
+    <p>Modifying a template's design to suit your needs is done almost exclusively
+      in the CSS and .skin files of a theme. The recommended approach to customizing
+      a theme is to make a copy of the one that most closely resembles the look
+      you're going for in the <em>App_Themes</em> directory and give it a new
+      name. </p>
+    <p>The main areas of customization of this template are: company logo, treeview,
+        colors, background images and, of course, the page content. </p>
+    <h3>Company logo </h3>
+    <p>The logo is placed inside the <em>header</em> <code>div</code>. Depending on 
+	which theme you decided to customize, the image might need to have a 
+	transparent background. The logo image moves horizontally on top of the 
+	large header image as the user resizes the browser window, so it needs to 
+	look good over various backgrounds.</p>
+    <h3><a name="treeviewCustomization" id="treeviewCustomization"></a>Treeview</h3>
+	<p>There is a number of ways to customize the <code>Treeview</code> control.
+	   You can style the links in the control's skin or rely on the default link
+	   format set in the style sheet. The images representing the nodes and their
+	   relations can be set using the <code><a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.imageset">ImageSet</a></code> property
+	   or you can supply your own images using the <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.collapseimageurl"><code>CollapseImageUrl</code></a>,
+	    <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.expandimageurl"><code>ExpandImageUrl</code></a> and
+	    <code><a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview.noexpandimageurl">NoExpandImageUrl</a></code> properties.
+	    See the <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.treeview">MSDN
+	    documentation</a> of the <code>Treeview</code> control for further information. </p>
+    <h3>Images</h3>
+    <p>The images used to create the design of each theme are stored in the <em>Images</em> subfolder
+      of the theme. Some images have very specific widths or heights to make
+      them fit into the layout. If you want to stay on the safe side when editing
+      the supplied images in a graphics program, try not to change any image
+      dimensions. Note that this warning only applies to images used for layout
+      purposes, such as background-tiles. There is no restriction on modifying
+      pictures used in the page contents, of course.</p>
+    <h4>Page content </h4>
+    <p>Before you start to add content to the pages of your themed application
+      it is a good idea to study the sample pages provided with each template
+      as well as the master page. Sections that require specific markup are commented
+      and contain instructions on what the markup should look like so it will
+      actually pick up the styles set in the style sheet and the skin file. </p>
+	<p>Note: the sample shopping cart is not a complete implementation and 
+	merely intended to showcase the themes' design elements.</p>
+</div>
+</body>
+</html>

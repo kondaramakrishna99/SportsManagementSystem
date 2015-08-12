@@ -1,0 +1,146 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AppMaster.master.cs" Inherits="AppMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head id="Head1" runat="server">    
+    <title>Two-column, fluid width CSS layout template</title>
+    <!-- Conditional comment to give IE/5/6/Win the javascript hack that helps them do max-width -->
+    <!--[if IE]>
+	<style type="text/css">
+		#sizer {
+			width:expression(document.body.clientWidth > 1050 ? "150px" : "60%" );
+		}
+	</style>
+	<![endif]-->
+    
+    <!-- Feed heights to IE 5 and 5.5 that cater to its incorrect interpretation of the 
+	CSS box model. -->
+    <!--[if IE 5]>
+	<style type="text/css">
+		#sidebarfooter {
+	        height:24px;
+        }
+        #ownerinfo address {
+	        height:44px;
+        }
+	</style>
+	<![endif]-->
+	
+	<!-- IE7-specific fixes -->
+	<!--[if IE 7]>
+	<style type="text/css">		
+        #expander {height:0;}   
+        #contactForm {height:1%} 
+        #mainmenu {margin-top:-1px;}    
+	</style>
+	<![endif]-->
+</head>
+<body>
+    <form runat="server" id="mainForm">
+        <a href="#copy" id="skiptocontent" title="Click this link to navigate directly to this page's content.">Skip to main content
+            <asp:ScriptManager 
+            ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        </a>
+        &nbsp;<div id="sizer">
+            <div id="expander">
+                <div id="wrapper" class="clearfix">
+                    <div id="header">
+                        <div id="headertop">
+                            <div id="ownername">
+                                DA-IICT<br />
+                                Sports Management System.</div>
+                            <div id="ownerinfo">
+                                <address>
+                                    Your address here<br />
+                                    some street, zip, some city
+                                </address>
+                            </div>
+                        </div>
+                        <div id="mainmenu">
+                            <asp:SiteMapDataSource runat="server" ID="sitemapDS" ShowStartingNode="false" />
+                             <asp:Menu ID="Menu1" runat="server" DataSourceID="sitemapDS" 
+                                StaticDisplayLevels="1" Orientation="Horizontal" 
+                                MaximumDynamicDisplayLevels="5"  >
+                                <DynamicHoverStyle BackColor="Red" BorderColor="#660033" Width="70px" />
+                                <DynamicMenuItemStyle BackColor="Red" CssClass="selectedlink" Width="70px" />
+                            </asp:Menu>
+                        </div>
+                    </div>
+                    <div id="contentwrapper">
+                        <div id="sidebar">
+                            <blockquote id="quote">
+                                &ldquo;Aliquam erat volutpat. Curabitur mauris. Fusce faucibus leo.&rdquo;<br />
+                                <asp:LoginStatus ID="LoginStatus1" runat="server"  BackColor="#99CCFF" 
+                                    BorderColor="Silver" BorderWidth="2" LogoutAction="RedirectToLoginPage" 
+                                    LogoutPageUrl="login.aspx" BorderStyle="Double" />
+                            </blockquote>
+                            <div id="sidebarcontent">
+                                <asp:ContentPlaceHolder runat="server" ID="phSidebar">
+                                    <%-- Sidebar placeholder. Sample text follows. 
+                                    Apply the markup to your own content. The 
+                                    structure should be:
+                                    <h3>Headline</h3>
+                                    <div class="sbcontentcontainer">
+                                        <p>Your content</p>
+                                    </div>
+                                    --%>
+                                    <h3>
+                                        Links</h3>
+                                    <div class="sbcontentcontainer">
+                                        <asp:TreeView ID="TreeView1" runat="server" DataSourceID="sitemapDS">
+                                        </asp:TreeView> 
+                                    </div>
+                                    <h3>
+                                        News</h3>
+                                    <div class="sbcontentcontainer">
+                                        <p>
+                                            Integer purus. Nulla laoreet, felis et tristique laoreet, felis elit sollicitudin
+                                            magna, id tincidunt dui ligula vitae arcu. Nulla ac felis. Donec quis augue id ligula
+                                            faucibus pharetra. In gravida pharetra neque.</p>
+                                        <p>
+                                            Integer purus. Nulla laoreet, felis et tristique laoreet, felis elit sollicitudin
+                                            magna.</p>
+                                    </div>
+                                    
+                                    <h3>
+                                        Something else</h3>
+                                    <div class="sbcontentcontainer">
+                                        <p>
+                                            Integer purus. Nulla laoreet, felis et tristique laoreet, felis elit sollicitudin
+                                            magna, id tincidunt dui ligula vitae arcu. Nulla ac felis. Donec quis augue id ligula
+                                            faucibus pharetra. In gravida pharetra neque.</p>
+                                        <p>
+                                            Sed dapibus, nisl at aliquam dapibus, augue lorem varius lorem, nec egestas turpis
+                                            urna in metus.</p>
+                                    </div>
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                        <div id="content">
+                            <div id="headerimgwrapper">
+                                <div id="headerimg"><%-- Leave blank. --%></div>
+                            </div>
+                            <div id="themepicker">
+                                Select a theme:
+                                <br />
+                                <asp:ImageButton ID="ibTheme1" runat="server" AlternateText="Green Theme" SkinID="themethumb" ImageUrl="~/Assets/Images/green_theme_thumb.jpg" CommandName="green" CausesValidation="false" OnCommand="Themepicker_Command" ToolTip="Green theme" TabIndex="20" />&nbsp;
+                                <asp:ImageButton runat="server" ID="ibTheme2" SkinID="themethumb" AlternateText="Brown Theme" ImageUrl="~/Assets/Images/brown_theme_thumb.jpg" CommandName="brown" CausesValidation="false" OnCommand="Themepicker_Command" ToolTip="Brown theme" TabIndex="21" />&nbsp;
+                                <asp:ImageButton ID="ibTheme3" runat="server" AlternateText="Red Theme" SkinID="themethumb" ImageUrl="~/Assets/Images/red_theme_thumb.jpg" CommandName="red" CausesValidation="false" OnCommand="Themepicker_Command" ToolTip="Red theme" TabIndex="22" />
+                            </div>
+                            <div id="copy">
+                                <asp:ContentPlaceHolder ID="phMain" runat="server">
+                                    <%-- Placeholder for the main content. Use standard HTML headings (h1 to h6) to structure the content.--%>
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                        <div id="footer">
+                            &copy; 2005 your name, all rights reserved.
+                            <div id="sidebarfooter"><%-- Leave blank. --%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

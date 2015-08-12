@@ -1,0 +1,27 @@
+<%-- The buttons for switching themes --%>
+<asp:ImageButton runat="server" SkinID="themethumb" BorderStyle="solid" BorderWidth="1px" BorderColor="#666666" />
+
+<%-- Main menu --%>
+<asp:Menu runat="server" Orientation="Horizontal">
+	<StaticMenuStyle />
+	<StaticMenuItemStyle CssClass="normallink" ItemSpacing="10px" />
+	<StaticHoverStyle />
+	<StaticSelectedStyle CssClass="selectedlink" ItemSpacing="10px" />
+</asp:Menu>
+
+<%-- Sample inline image on a page. Can be right- or left-aligned using the "imgfloatright"
+or "imgfloatleft" CSS classes. --%>
+<asp:Image  runat="server" SkinID="dummy_img" GenerateEmptyAlternateText="true" CssClass="imgfloatright" ImageUrl="~/App_Themes/Red/Images/dummy_img.jpg" BorderWidth="1px" />
+
+<%-- Sample GridView on the Publications.aspx page --%>
+<asp:GridView SkinID="booksSkin" runat="server" BackColor="White" BorderColor="#F2DBBB" BorderStyle="Solid" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
+	<HeaderStyle BackColor="#F9A60D" Font-Bold="True" ForeColor="#FFFFFF" />
+	<RowStyle BackColor="#FFFFFF" ForeColor="#333333" />		
+	<AlternatingRowStyle BackColor="#F2DBBB" ForeColor="#333333" />
+</asp:GridView>
+
+<%-- Default skin for all textboxes. --%>
+<asp:TextBox runat="server" CSSClass="txtBox" />
+
+<%-- Default skin for all buttons. --%>
+<asp:Button runat="server" CSSClass="button" />

@@ -1,0 +1,435 @@
+/* Sets element margins, padding, and border to 0 to even out browser differences when adding desired values later. */
+html, body, div, p, h1, h2, h3, h4, h5, h6, blockquote, ol, ul, li, dl, dt, dd, td, form, fieldset, a, img, address {
+     margin: 0;
+     padding: 0;
+     border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {color:#942727;}
+
+/*Typographics styles adapted from http://www.thenoodleincident.com/tutorials/typography/ */
+h1 {
+	margin:0;
+	font-size: 1.8em;
+	font-weight: normal;
+}
+h2 {
+	margin: 1.2em 0em 1.2em 0em;
+	font-size: 1.6em;
+	font-weight: normal;
+}
+h3 {
+	margin: 1.2em 0em 1.2em 0em;
+	font-size: 1.4em;
+	font-weight: normal;
+}
+h4 {
+	margin: 1.2em 0em 1.2em 0em;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+h5 {
+	margin: 1.2em 0em 1.2em 0em;
+	font-size: 1.0em;
+	font-weight: bold;
+}
+h6 {
+	margin: 1.2em 0em 1.2em 0em;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+img {border: 0;}
+
+ol, ul, li {
+    margin:0.2em 0 0.1em 0;
+	font-size: 1.0em;
+	line-height: 1.8em;
+}
+p {
+	margin: 1.2em 0em 1.2em 0em;
+	font-size: 1.0em;
+	line-height: 1.8em;
+}
+
+li > p {margin-top: 0.2em;}
+
+pre {
+	font-family: monospace;
+	font-size: 1.0em;
+}
+
+strong, b {font-weight: bold;}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color:#942727;
+}
+
+a:link {}
+
+a:visited {}
+
+a:active {}
+
+a:hover {
+	text-decoration:underline;	
+	color:#333333;
+}
+
+/* "Jello Mold" page construction technique see http://www.positioniseverything.net/articles/jello-expo.html */
+body {
+	padding: 0 377px;	
+	text-align: center;
+	background-color: #F3E7BA;
+	font-family:"Trebuchet MS", "Lucida Grande", Verdana, Tahoma, sans-serif;
+	font-size:85%;
+	background-image:url(Images/bg_tile.gif);
+	color:#333333;
+}
+#skiptocontent{
+	position:absolute;
+	margin-left:-1000px;
+}
+#sizer {
+	margin: 0 auto;
+	padding: 10px 0;
+	width: 60%;
+	max-width: 150px;
+	text-align:left;
+}
+#expander {
+	position: relative;
+	min-width: 750px; /* Critical Safari fix! */
+	margin: 0 -375px;
+	background: white;
+}
+
+/* Holly hack for IE \*/
+* html #expander { height: 0; }
+/* */
+
+#wrapper { 
+	width: 100%; /* helps IE get the child percentages right. */
+	background-image:url(Images/content_border.gif);
+	background-repeat:repeat-y;
+} 
+
+/* http://positioniseverything.net/easyclearing */
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-table;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+#sidebar {
+	display: inline; /* IEwin doubled margin bug fix */	
+	float: right;
+	width: 243px;
+	margin-left:-3px; /*IE Win 3px gap fix*/
+	background-color:#F2DBBB;
+	background-image:url(Images/sidebar_bg.png);
+	background-repeat:repeat-y;	
+}
+
+html>body #sidebar {margin-left:0;}
+
+#content {
+	height:1%;
+	margin:0;
+	padding:0;
+	background-color:#F2DBBB;
+	background-image: url(Images/content_border.gif);
+	background-repeat:repeat-y;
+}
+html>body #content {
+	height:auto;
+	margin-right:243px;
+}
+#header {
+	background-color:#942727;
+	padding-top:2px;
+	padding-left:10px;
+	background-image:none;
+}
+#headertop {
+	position:relative;
+	height:60px;
+	background-color:#F2DBBB;
+}
+#ownername {
+	padding:0.5em 20px;
+	color:#942727;
+	letter-spacing:0.2em;
+}
+#ownername strong {
+	margin-left:-2px;
+    font-weight:normal;
+	font-size:140%;
+	letter-spacing:normal;
+}
+#ownerinfo {
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	width:70%;
+	height:44px;
+	background-image:url(Images/topheader_deco_img.jpg);
+	background-repeat:no-repeat;
+	background-color:#942727;
+	background-position:2px 0;
+}
+#ownerinfo address {
+	position:absolute;
+	top:0;
+	right:0;
+	width:243px;
+	height:39px;
+	padding-top:3px;
+	text-align:center;
+	font-style:normal;
+	color:#F2DBBB;
+	background-color:#942727;
+	background-image:url(Images/headertop_img_ds.gif);
+	background-repeat:no-repeat;
+}
+#mainmenu, #mainmenu tr {
+	position:relative;
+	height:24px;
+}
+
+* html #mainmenu {margin-top:-1px;}
+
+#mainmenu a {text-decoration:none;}
+/* Adds a height to a button so that IE Win will allow it to be clickable across its full width. */
+
+/* Hide from IE5-Mac \*/
+* html #mainmenu a {
+     height: 1%;
+}
+/* end hiding */ 
+
+#mainmenu .normallink {
+	padding:0 10px;
+	font-weight:bold;
+	color:#FFFFFF;
+}
+#mainmenu .selectedlink {
+	padding:0 10px;
+	background-color:#F2DBBB;
+	color:#942727;
+}
+#contentwrapper {
+	background-image:url(Images/sidebar_bg.png);
+	background-repeat:repeat-y;
+	background-position:top right;
+}
+
+/* Hides from IE5-mac \*/ 
+     * html #contentwrapper{height:1%;}
+/* End hide from IE-mac */ 
+
+#quote {
+	overflow:hidden;
+	height:127px;
+	padding:10px 10px 10px 20px; /* -- to make up for the -2px left margin */
+	font-weight:normal;
+	font-size:140%;
+	line-height:140%;
+	color:#942727;
+}
+#sidebarcontent {	
+	margin:0 10px 1em;
+	background-color:#FFFFFF;
+	line-height:1em;
+}
+#sidebarcontent h3 {
+	margin:0;
+	padding:0.3em 2em;
+	border-top:2px solid #F2DBBB;
+	border-bottom:2px solid #F2DBBB;
+	background-color:#F9A60D;	
+	color:#FFFFFF;
+	font-size:110%;
+	font-weight:bold;
+	letter-spacing:0.15em;
+}
+#sidebarcontent .sbcontentcontainer {
+	padding:0.5em 2em;
+	color:#782C18;
+	font-size:95%;
+}
+#sidebarcontent .sbcontentcontainer ol {padding-left:20px;}
+#sidebarcontent .sbcontentcontainer ul {list-style-type:none;}
+#headerimgwrapper {
+	margin-right:-8px;
+	padding-right:10px;
+	background-image:url(Images/header_img_border.gif);
+	background-repeat:no-repeat;
+	background-position:100% 2px;
+}
+#headerimg {
+	height:149px;
+	background-image: url(Images/header_img.jpg);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-position:10px 2px;
+}
+#themepicker {
+	display:inline;/* IEwin doubled margin bug fix */
+	float:right;
+	padding: 5px 10px 10px 10px;
+	color:#942727;
+	font-size:smaller;
+}
+#copy {		
+	margin-left:10px;
+	padding:2em 25px 3em;
+	color:#333333;
+	background-color:#FFFFFF;
+}
+
+#copy td, #copy th {padding: 0.2em 0.5em;} 
+
+#copy table td {font-size:0.9em;}
+
+#copy img {
+	padding:2px;
+	border:1px solid #782C18;
+}
+#copy fieldset {	
+	margin-bottom:1em;
+	padding:1em;
+	border:1px dotted #000000;
+}
+#copy .txtBox {
+	margin-left: 1em;
+	border:1px solid #666666;
+	background-color:#F2DBBB;
+}
+#copy .txtBox:focus {
+	border:1px solid #573323;
+	background-color:#FFFFFF;
+}
+#copy .button {
+	border:1px solid #942727;
+	background-color:#F9A60D;
+	color:#333333;
+}
+
+#copy legend {background-color:#FFFFFF;padding:0.5em;}
+
+#copy caption {text-align:left; font-weight:bold;}
+
+div#contactForm {margin-left:4em;}
+
+/* Hides from IE5-mac \*/ 
+     * html div#contactForm{height:1%;}
+/* End hide from IE-mac */ 
+
+.imgfloatright {
+	float:right;
+	display:inline;
+	margin: 0.25em 0 0.25em 0.5em;
+}
+.imgfloatleft {
+	float:left;
+	display:inline;
+	margin: 0.25em 0.5em 0.25em 0;
+}
+#footer {
+	position:relative;
+	bottom:0;
+	left:0;
+	right:0;
+	clear:both;	
+	height:26px;
+	margin-left:10px;
+	padding:2px 0 0 10px;	
+	background-color:#942727;
+	border-top:2px solid #C58F41;
+	color:#F2DBBB;	
+	font-size:0.9em;
+	letter-spacing:0.25em;
+}
+#sidebarfooter {
+	position:absolute;
+	top:0;
+	right:0;
+	width:243px;
+	height:28px;
+	background-color:#782C18;
+}
+@media print {	
+	body {
+		margin:0;
+		padding:0;
+		font-size:11pt;
+		line-height:13pt;
+		background:#FFFFFF !important;
+	}
+	#sizer{
+		margin:0; 
+		width:auto !important;
+	}
+	#expander{
+		position:static;
+		margin:0 !important;
+	}
+	#headertop, #ownerinfo {
+		position:static; 
+		height:auto;
+	}	
+	#ownerinfo address {
+		position:static; 
+		height:auto !important; 
+		margin-bottom:2em;
+	}	
+	#header {
+		border-bottom:1px solid #000000; 
+		margin-bottom:2em;
+	}
+	#wrapper, #header, #headertop, #ownername, #ownerinfo, #ownerinfo address, #mainmenu, #maimenu .selectedlink, #contentwrapper, #quote, #copy .txtBox, #copy .button, #copy legend, #footer, #sidebarfooter {
+		background:none !important;
+	}
+	h1, h2, h3, h4, h5, h6, #ownername, #mainmenu {
+		font-family:"Trebuchet MS", "Lucida Grande", sans-serif;
+		font-weight: bold;
+		}	
+    #sidebar, #themepicker, #headerimgwrapper, #sidebarfooter {
+		display:none !important;
+	} 
+    #copy{
+		margin:0;
+		padding:0;
+	}
+
+	#copy fieldset{border:none;}
+
+	#copy legend{color:#942727;}
+
+	#footer {
+		position:static;
+		margin-top:2em;
+		font-size:1em;
+	}
+
+	#content{width:100%;}
+
+	html>body #content {
+		width:85%;
+		margin-left:2em;
+	}
+}
